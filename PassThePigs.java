@@ -12,13 +12,22 @@ public class PassThePigs {
         winningScore = 100;
         players.add(new Human("Human1"));
         players.add(new Bot("Bot1", "aggressive"));
-        for(int i = 0; i < 10; i++) {
-            int rollDice = PigDice.roll();
-            System.out.println(rollDice);
+        
+        for(int i = 0; i < players.size(); i++) {
+            Player currentPlayer = (Player) players.get(i);
         }
+        
         int handScore = 0;
+
+        boolean reroll = true;
+        
         Player player1 = (Player) players.get(1);
-        System.out.println(player1.getName() + " rolled a " + PigDice.roll());
-        System.out.println(player1.getName() + " rolled a " + PigDice.roll());
+        int rollDice = PigDice.roll();
+        if(rollDice == 0) {
+            handScore = 0;
+        } else {
+            handScore += rollDice;
+        }
+        System.out.println("Player 1 rolled a " + rollDice + " and now has a hand score of " + handScore);
     }
 }
