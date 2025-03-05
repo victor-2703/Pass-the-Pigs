@@ -1,9 +1,9 @@
-public class Bot {
-    private String botName;
-    private String strategyDescription;
-    private int threshold;
-
-    public Bot(String name) {
-        botName = name;
+public class Bot extends Player {
+    public Bot(String name, String strategy) {
+        super(name, strategy);
+    }
+    
+    public boolean wantsToRoll(int myScore, int handScore, ArrayList<Integer> otherScores, int winningScore) {
+        return true;
     }
 }
