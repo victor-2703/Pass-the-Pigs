@@ -25,8 +25,6 @@ public class PigDice {
         String dice1 = dice();
         String dice2 = dice();
         
-        
-        
         if((dice1.equals("Dot") && dice2.equals("No Dot")) || (dice1.equals("No Dot") && dice2.equals("Dot"))) {
             return 0;
         }
