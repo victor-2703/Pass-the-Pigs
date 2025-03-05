@@ -11,7 +11,7 @@ public class Human extends Player {
     public boolean wantsToRoll(int myScore, int handScore, ArrayList <Integer> otherScores, int winningScore) {
         System.out.println(getName() + ", your total score: " + myScore + ", current hand score: " + handScore);
         System.out.print("Do you want to roll again? (y/n): ");
-        String input = scanner.nextLine().trim().toLowerCase();
+        String input = scanner.nextLine().toLowerCase();
         if (input.equals("y")) {
             return true;
         }

@@ -10,7 +10,7 @@ public class PassThePigs {
         
         players = new ArrayList <Player> ();
         winningScore = 100;
-        players.add(new Human("Human1", "Human"));
+        players.add(new Human("Human1"));
         players.add(new Bot("Bot1", "aggressive"));
         
         for(int i = 0; i < players.size(); i++) {
@@ -18,7 +18,7 @@ public class PassThePigs {
         }
         
         int handScore = 0;
-        
+
         boolean reroll = true;
         
         Player player1 = (Player) players.get(1);
