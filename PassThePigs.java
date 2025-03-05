@@ -10,24 +10,45 @@ public class PassThePigs {
         
         players = new ArrayList <Player> ();
         winningScore = 100;
-        players.add(new Human("Human1"));
+        players.add(new Human("Human1", "Human"));
         players.add(new Bot("Bot1", "aggressive"));
         
+        Player currentPlayer = null;
         for(int i = 0; i < players.size(); i++) {
-            Player currentPlayer = (Player) players.get(i);
-        }
+            currentPlayer = (Player) players.get(i);
+            
+            int handScore = 0;
+            boolean reroll = true;
         
-        int handScore = 0;
-
-        boolean reroll = true;
-        
-        Player player1 = (Player) players.get(1);
-        int rollDice = PigDice.roll();
-        if(rollDice == 0) {
-            handScore = 0;
-        } else {
-            handScore += rollDice;
+            System.out.println("\n" + currentPlayer.getName() + "'s turn!");
+            
+            while (reroll) {
+                reroll = currentPlayer.wantsToRoll(currentPlayer.getScore(), handScore, getOtherScores(i, players), winningScore);
+                if (reroll) {
+                    int rollDice = PigDice.roll();
+                    String dice1 = PigDice.getDice1();
+                    String dice2 = PigDice.getDice2();
+                    if(rollDice == 0) {
+                        System.out.println(currentPlayer.getName() + " rolls a " + dice1 + " and a " + dice2 + " for a roll of " + rollDice + ". Handscore is now " + handScore + ".");
+                        handScore = 0;
+                        break;
+                    } else {
+                        handScore += rollDice;
+                        System.out.println(currentPlayer.getName() + " rolls a " + dice1 + " and a " + dice2 + " for a roll of " + rollDice + ". Handscore is now " + handScore + ".");
+                    }
+                }
+            }
         }
-        System.out.println("Player 1 rolled a " + rollDice + " and now has a hand score of " + handScore);
+    }
+    
+    private static ArrayList <Integer> getOtherScores(int currentIndex, ArrayList <Player> players) {
+        ArrayList <Integer> result = new ArrayList();
+        for (int i = 0; i < players.size(); i++) {
+            if (i != currentIndex) {
+                Player player = (Player) players.get(i);
+                result.add(new Integer(player.getScore()));
+            }
+        }
+        return result;
     }
 }

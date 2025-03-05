@@ -21,11 +21,12 @@ public class PigDice {
         }
     }
     
+    private static String dice1;
+    private static String dice2;
+
     public static int roll() {
-        String dice1 = dice();
-        String dice2 = dice();
-        
-        
+        dice1 = dice();
+        dice2 = dice();
         
         if((dice1.equals("Dot") && dice2.equals("No Dot")) || (dice1.equals("No Dot") && dice2.equals("Dot"))) {
             return 0;
@@ -119,5 +120,13 @@ public class PigDice {
                 }
             }
         }
+    }
+    
+    public static String getDice1() {
+        return dice1;
+    }
+
+    public static String getDice2() {
+        return dice2;
     }
 }
