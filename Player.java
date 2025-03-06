@@ -4,6 +4,7 @@ public class Player {
     private String name;
     private String strategy;
     private int score;
+    private int turn = 0;
 
     public Player(String nm) {
         name = nm;
@@ -29,5 +30,11 @@ public class Player {
     
     public boolean wantsToRoll(int myScore, int handScore, ArrayList <Integer> otherScores, int winningScore) {
         return false;
+    }
+    
+    public void pigOut(boolean zero) {
+        if(zero) {
+            turn = 0;
+        }
     }
 }

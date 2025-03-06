@@ -18,4 +18,10 @@ public class WimpyBot extends Player {
             return false;
         }
     }
+    
+    public void pigOut(boolean zero) {
+        if(zero) {
+            turn = 0;
+        }
+    }
 }

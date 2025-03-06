@@ -13,7 +13,7 @@ public class SchemerBot extends Player {
             return false;
         }
         
-        int oppMaxScore = otherScores.get(0);
+        int oppMaxScore = maxOpponentScore(otherScores);
         int difference = myScore - oppMaxScore;
         
         double circuitBreaker;
@@ -42,5 +42,17 @@ public class SchemerBot extends Player {
             return true;
         }
         return false;
+    }
+    
+    private int maxOpponentScore(ArrayList <Integer> oppScores) {
+        int max = 0;
+        for (int i = 0; i < oppScores.size(); i++) {
+            Integer val = (Integer) oppScores.get(i);
+            int score = val.intValue();
+            if (score > max) {
+                max = score;
+            }
+        }
+        return max;
     }
 }
