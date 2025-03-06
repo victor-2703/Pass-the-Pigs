@@ -1,17 +1,20 @@
 import java.util.ArrayList;
 
-public class BotPlayer extends Player {
-    private static String strategy = "Generic";
+public class WimpyBot extends Player {
+    private static String strategy = "Wimpy";
+    private int turn = 0;
     
-    public BotPlayer(String name) {
+    public WimpyBot(String name) {
         super(name);
     }
     
     public boolean wantsToRoll(int myScore, int handScore, ArrayList <Integer> otherScores, int winningScore) {
-        if(handScore < 20) {
+        if(turn == 0) {
+            turn++;
             return true;
         }
         else {
+            turn = 0;
             return false;
         }
     }

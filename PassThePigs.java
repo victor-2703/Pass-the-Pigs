@@ -9,7 +9,9 @@ public class PassThePigs {
 
         players.add(new Human("Human1"));
         players.add(new BotPlayer("Generic Bot"));
-        players.add(new BotPlayer("Bot2"));
+        players.add(new SchemerBot("Schemer Bot"));
+        players.add(new RiskyBot("Risky Bot"));
+        players.add(new WimpyBot("Wimpy Bot"));
         
         Player currentPlayer;
         boolean gameover = false;
@@ -42,6 +44,14 @@ public class PassThePigs {
                         }
                     }
                 }
+                
+                currentPlayer.addScore(handScore);
+                
+                for(int j = 0; j < players.size(); j++) {
+                    Player player = (Player) players.get(j);
+                    System.out.print(player.getName() + ": " + player.getScore() + " | ");
+                }
+                System.out.println("");
 
                 if(currentPlayer.getScore() >= winningScore) {
                     System.out.println("Game over! Winner is: " + currentPlayer.getName() + ".");
@@ -52,8 +62,6 @@ public class PassThePigs {
                 if(!pigOut) {
                     System.out.println(currentPlayer.getName() + " passes.");
                 }
-                
-                currentPlayer.addScore(handScore);
             }
         }
     }
