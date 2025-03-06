@@ -3,9 +3,11 @@ import java.util.Scanner;
 
 public class Human extends Player {
     private static Scanner scanner = new Scanner(System.in);
-
-    public Human(String name, String strategy) {
-        super(name, strategy);
+    private static String strategy;
+    
+    public Human(String name) {
+        super(name);
+        strategy = "Human";
     }
     
     public boolean wantsToRoll(int myScore, int handScore, ArrayList <Integer> otherScores, int winningScore) {
@@ -15,8 +17,12 @@ public class Human extends Player {
         if (input.equals("y")) {
             return true;
         }
-        else {
+        else if (input.equals("n")) {
             return false;
+        }
+        else {
+            System.out.println("Invalid input. Please enter 'y' or 'n'.");
+            return wantsToRoll(myScore, handScore, otherScores, winningScore);
         }
     }
 }

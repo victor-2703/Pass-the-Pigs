@@ -11,12 +11,6 @@ public class Player {
         score = 0;
     }
     
-    public Player(String nm, String strat) {
-        name = nm;
-        strategy = strat;
-        score = 0;
-    }
-    
     public String getName() {
         return name;
     }
@@ -34,6 +28,6 @@ public class Player {
     }
     
     public boolean wantsToRoll(int myScore, int handScore, ArrayList <Integer> otherScores, int winningScore) {
-        return true;
+        return false;
     }
 }
