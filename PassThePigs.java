@@ -5,7 +5,7 @@ public class PassThePigs {
         System.out.println("Let's play Pass the Pigs!");
         
         ArrayList <Player> players = new ArrayList <Player> ();
-        int winningScore = 30;
+        int winningScore = 100;
 
         players.add(new Human("Human1"));
         players.add(new BotPlayer("Generic Bot"));
